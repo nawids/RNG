@@ -7,7 +7,7 @@ phases:
   build:
     commands:
       - zip -r9 lambda_rng.zip index.js
-      - aws s3api put-object --bucket lambda-builds-rng --key lambda.zip --server-side-encryption aws:kms --body lambda_rng.zip > response.json
+      - aws s3api put-object --bucket lambda-builds-rng2 --key lambda_rng.zip --server-side-encryption aws:kms --body lambda_rng.zip > response.json
       - cat response.json
       - cat response.json | jq '{"Parameters":{"VersionId":.VersionId}}' > configuration.json
       - cat configuration.json
