@@ -43,7 +43,7 @@ Resources:
       Runtime: nodejs8.10
       Handler: index.handler
       Code:
-        S3Bucket: lambda-builds-rng2
+        S3Bucket: lambda-builds-rng
         S3Key: lambda_rng.zip
         S3ObjectVersion: !Ref VersionId
 
