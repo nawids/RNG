@@ -6,7 +6,7 @@ phases:
       - apt-get install jq zip
   build:
     commands:
-      - zip -r9 lambda_rng.zip index.js
+      - zip -r9 ./lambda_rng.zip index.js
       - aws s3api put-object --bucket ns-pipeline --key lambda_rng.zip --server-side-encryption aws:kms --body lambda_rng.zip > response.json
       - cat response.json
       - cat response.json | jq '{"Parameters":{"VersionId":.VersionId}}' > configuration.json
